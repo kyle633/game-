@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Space Escape - Paper Game</title>
+<style>
+    * {
+        box-sizing: border-box;
+    }
+    @page {
+        size: letter portrait;
+        margin: 0.35in;
+    }
+    body {
+        font-family: Arial, sans-serif;
+        color: #18213a;
+        background: white;
+        margin: 0;
+    }
+    .page {
+        max-width: 7.8in;
+        margin: auto;
+        padding: 8px;
+    }
+    header {
+        text-align: center;
+        background: #18213a;
+        color: white;
+        padding: 12px;
+        border-radius: 10px;
+    }
+    h1 {
+        margin: 0 0 5px;
+        font-size: 29px;
+        letter-spacing: 1px;
+    }
+    header p {
+        margin: 0;
+        font-size: 12px;
+    }
+    h2 {
+        font-size: 15px;
+        margin: 10px 0 5px;
+        color: #18213a;
+    }
+    .instructions {
+        border: 2px solid #18213a;
+        border-radius: 8px;
+        padding: 8px 12px;
+        font-size: 11px;
+        line-height: 1.35;
+    }
+    .instructions p {
+        margin: 3px 0;
+    }
+    .board {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        grid-template-rows: repeat(5, 0.77in);
+        gap: 5px;
+        margin-top: 8px;
+    }
+    .tile {
+        border: 1.5px solid #667085;
+        border-radius: 7px;
+        padding: 5px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        text-align: center;
+        background: #f0f3f8;
+    }
+    .number {
+        align-self: flex-start;
+        font-size: 13px;
+        font-weight: bold;
+    }
+    .label {
+        font-size: 9px;
+        font-weight: bold;
+    }
+    .start {
+        background: #d8f3dc;
+        border: 2px solid #26834a;
+    }
+    .finish {
+        background: #ffe69a;
+        border: 2px solid #d18b00;
+    }
+    .hazard {
+        background: #ffdada;
+        border: 1.5px solid #c53c3c;
+    }
+    .supply {
+        background: #dceaff;
+        border: 1.5px solid #3876c9;
+    }
+    .tracking {
+        border: 2px dashed #667085;
+        border-radius: 8px;
+        margin-top: 9px;
+        padding: 8px 10px;
+        font-size: 11px;
+    }
+    .tracking p {
+        margin: 5px 0;
+    }
+    .footer {
+        margin-top: 7px;
+        text-align: center;
+        font-size: 10px;
+        font-style: italic;
+    }
+    @media print {
+        body {
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+        .page {
+            padding: 0;
+            max-width: none;
+        }
+        header, .instructions, .tracking, .board {
+            break-inside: avoid;
+        }
+    }
+</style>
+</head>
+<body>
+<div class="page">
+<header>
+    <h1>🚀 SPACE ESCAPE 🚀</h1>
+    <p>A solo space adventure: Can you reach the launch pad in time?</p>
+</header>
+<section class="instructions">
+    <h2>MISSION & RULES</h2>
+    <p><b>Goal:</b> Reach space 25 within 12 turns to escape the planet.</p>
+    <p><b>1.</b> Start at space 1. Roll one six-sided die and move forward.</p>
+    <p><b>2.</b> ☄ <b>Hazard:</b> On spaces 5, 10, 16, or 21, move back 2 spaces. You may spend one shield to cancel this effect.</p>
+    <p><b>3.</b> ★ <b>Supply:</b> On spaces 8, 13, or 19, move forward 1 extra space.</p>
+    <p><b>4.</b> You start with 3 shields. Each shield can cancel one hazard. You decide when to use them.</p>
+    <p><b>5.</b> Each die roll uses one turn. Reaching or passing space 25 wins. If you finish your 12th turn below space 25, you lose.</p>
+    <p><b>Tip:</b> Save shields for hazards when possible. Good luck, astronaut!</p>
+</section>
+<h2>YOUR JOURNEY — FOLLOW THE NUMBERS</h2>
+<div class="board">
+<div class="tile start" style="grid-row:1;grid-column:1"><span class="number">1</span><span class="label">START</span></div>
+<div class="tile normal" style="grid-row:1;grid-column:2"><span class="number">2</span><span class="label">SPACE</span></div>
+<div class="tile normal" style="grid-row:1;grid-column:3"><span class="number">3</span><span class="label">SPACE</span></div>
+<div class="tile normal" style="grid-row:1;grid-column:4"><span class="number">4</span><span class="label">SPACE</span></div>
+<div class="tile hazard" style="grid-row:1;grid-column:5"><span class="number">5</span><span class="label">☄ HAZARD</span></div>
+<div class="tile normal" style="grid-row:2;grid-column:5"><span class="number">6</span><span class="label">SPACE</span></div>
+<div class="tile normal" style="grid-row:2;grid-column:4"><span class="number">7</span><span class="label">SPACE</span></div>
+<div class="tile supply" style="grid-row:2;grid-column:3"><span class="number">8</span><span class="label">★ SUPPLY</span></div>
+<div class="tile normal" style="grid-row:2;grid-column:2"><span class="number">9</span><span class="label">SPACE</span></div>
+<div class="tile hazard" style="grid-row:2;grid-column:1"><span class="number">10</span><span class="label">☄ HAZARD</span></div>
+<div class="tile normal" style="grid-row:3;grid-column:1"><span class="number">11</span><span class="label">SPACE</span></div>
+<div class="tile normal" style="grid-row:3;grid-column:2"><span class="number">12</span><span class="label">SPACE</span></div>
+<div class="tile supply" style="grid-row:3;grid-column:3"><span class="number">13</span><span class="label">★ SUPPLY</span></div>
+<div class="tile normal" style="grid-row:3;grid-column:4"><span class="number">14</span><span class="label">SPACE</span></div>
+<div class="tile normal" style="grid-row:3;grid-column:5"><span class="number">15</span><span class="label">SPACE</span></div>
+<div class="tile hazard" style="grid-row:4;grid-column:5"><span class="number">16</span><span class="label">☄ HAZARD</span></div>
+<div class="tile normal" style="grid-row:4;grid-column:4"><span class="number">17</span><span class="label">SPACE</span></div>
+<div class="tile normal" style="grid-row:4;grid-column:3"><span class="number">18</span><span class="label">SPACE</span></div>
+<div class="tile supply" style="grid-row:4;grid-column:2"><span class="number">19</span><span class="label">★ SUPPLY</span></div>
+<div class="tile normal" style="grid-row:4;grid-column:1"><span class="number">20</span><span class="label">SPACE</span></div>
+<div class="tile hazard" style="grid-row:5;grid-column:1"><span class="number">21</span><span class="label">☄ HAZARD</span></div>
+<div class="tile normal" style="grid-row:5;grid-column:2"><span class="number">22</span><span class="label">SPACE</span></div>
+<div class="tile normal" style="grid-row:5;grid-column:3"><span class="number">23</span><span class="label">SPACE</span></div>
+<div class="tile normal" style="grid-row:5;grid-column:4"><span class="number">24</span><span class="label">SPACE</span></div>
+<div class="tile finish" style="grid-row:5;grid-column:5"><span class="number">25</span><span class="label">LAUNCH PAD!</span></div>
+</div>
+<section class="tracking">
+    <p><b>Turn:</b>  □ 1  □ 2  □ 3  □ 4  □ 5  □ 6       □ 7  □ 8  □ 9  □ 10  □ 11  □ 12</p>
+    <p><b>Shields remaining:</b>  □ □ □       &nbsp;&nbsp; <b>Final position:</b> __________</p>
+    <p><b>Result:</b> □ Mission complete! &nbsp;       □ Mission failed.</p>
+</section>
+<p class="footer">
+    SPACE ESCAPE — A game of luck, planning, and survival.
+</p>
+</div>
+</body>
+</html>
